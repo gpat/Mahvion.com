@@ -1,14 +1,38 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Zap, Shield, Globe, Layers, Cpu, HeartHandshake } from 'lucide-react';
+import { Zap, Shield, Layers, Cpu, HeartHandshake, Workflow } from 'lucide-react';
 
 const features = [
-  { icon: Zap, title: 'Blazing Fast', desc: 'Edge-ready architecture with sub-second page loads.' },
-  { icon: Shield, title: 'Enterprise Security', desc: 'SOC2-aligned, encrypted, and HIPAA-ready where it matters.' },
-  { icon: Globe, title: 'Global Scale', desc: 'Multi-region deployment with 99.99% uptime SLAs.' },
-  { icon: Layers, title: 'Unified Ecosystem', desc: 'One login, one brand, many powerful products.' },
-  { icon: Cpu, title: 'AI Native', desc: 'Automation and insights powered by modern AI models.' },
-  { icon: HeartHandshake, title: 'Human Support', desc: '24/7 responsive support from real humans.' },
+  {
+    icon: Layers,
+    title: 'One ecosystem, one login',
+    desc: 'Customers, vehicles, properties, and policies live in a shared data layer — no double entry across products.',
+  },
+  {
+    icon: Cpu,
+    title: 'AI where it matters',
+    desc: 'Voice-to-note in Medscribe, smart quote drafting in Insurance, and price intelligence in Vehicle ERP.',
+  },
+  {
+    icon: Workflow,
+    title: 'Built for real workflows',
+    desc: 'Not generic dashboards — every product is shaped around the actual day-to-day of the teams that use it.',
+  },
+  {
+    icon: Shield,
+    title: 'Enterprise-grade security',
+    desc: 'SOC2-aligned controls, role-based access, encrypted at rest, and HIPAA-ready for clinical workflows.',
+  },
+  {
+    icon: Zap,
+    title: 'Fast on any device',
+    desc: 'Edge-rendered pages, sub-second loads, and offline-friendly mobile flows for staff in the field.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Real human support',
+    desc: 'Talk to engineers and product specialists, not chatbots. Onboarding and migration help included.',
+  },
 ];
 
 export default function Features() {

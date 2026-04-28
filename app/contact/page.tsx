@@ -22,14 +22,21 @@ export default function ContactPage() {
             <Mail className="h-6 w-6 text-brand-600" />
             <div>
               <p className="font-semibold">Email</p>
-              <p className="text-sm text-slate-600">{site.email}</p>
+              <a href={`mailto:${site.email}`} className="text-sm text-slate-600 hover:text-brand-600">
+                {site.email}
+              </a>
             </div>
           </div>
           <div className="card flex items-start gap-4">
             <Phone className="h-6 w-6 text-brand-600" />
             <div>
               <p className="font-semibold">Phone</p>
-              <p className="text-sm text-slate-600">{site.phone}</p>
+              <a
+                href={`tel:${site.phone.replace(/\s+/g, '')}`}
+                className="text-sm text-slate-600 hover:text-brand-600"
+              >
+                {site.phone}
+              </a>
             </div>
           </div>
           <div className="card flex items-start gap-4">

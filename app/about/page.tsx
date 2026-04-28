@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Section from '@/components/Section';
-import { site } from '@/lib/site';
+import { products, site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: `Learn about ${site.name} — our vision, mission, team, and story.`,
+  description: `Learn about ${site.name} — our vision, mission, and the team building production-grade SaaS for entire industries.`,
 };
 
 const team = [
@@ -19,8 +19,8 @@ export default function AboutPage() {
     <>
       <Section
         eyebrow="About Us"
-        title={`We're building the next generation of SaaS at ${site.name}`}
-        subtitle="One brand. Multiple products. Built for teams that want to move fast without breaking things."
+        title={`We build software that runs entire industries`}
+        subtitle={`${site.name} ships ${products.length} production SaaS platforms today — for auto dealers, clinicians, insurance agents, and real estate teams. One brand, one login, one design system.`}
       />
 
       <div className="bg-grad-soft">
@@ -28,20 +28,32 @@ export default function AboutPage() {
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
             <div className="card">
               <h3 className="text-xl font-bold grad-text">Vision</h3>
-              <p className="mt-3 text-slate-600">To become the world's most trusted multi-product SaaS ecosystem — where every business finds the right tool, beautifully designed.</p>
+              <p className="mt-3 text-slate-600">
+                Become the most trusted multi-product SaaS ecosystem — where any traditional business can find a beautifully built tool that fits the way they actually work.
+              </p>
             </div>
             <div className="card">
               <h3 className="text-xl font-bold grad-text">Mission</h3>
-              <p className="mt-3 text-slate-600">We ship production-grade software that helps real businesses save time, cut costs, and grow sustainably.</p>
+              <p className="mt-3 text-slate-600">
+                Ship production-grade software that helps real businesses save time, cut costs, and grow sustainably — without the complexity of enterprise legacy tools.
+              </p>
             </div>
           </div>
         </Section>
       </div>
 
       <Section eyebrow="Our Story" title="From one app to an ecosystem">
-        <p className="mx-auto max-w-3xl text-center text-lg text-slate-600">
-          {site.name} started with a single product and a simple belief: software should be fast, clean, and respect the humans using it. Today we ship multiple SaaS platforms across industries — all under one brand, one login, one vision.
-        </p>
+        <div className="mx-auto max-w-3xl space-y-5 text-lg leading-relaxed text-slate-600">
+          <p>
+            {site.name} started with one ERP and a simple belief: software should be fast, clean, and respect the humans using it. We watched dealerships, clinics, agencies, and property teams suffer through legacy software that felt like punishment — and decided to ship the opposite.
+          </p>
+          <p>
+            Today {site.name} runs four production SaaS platforms — Vehicle ERP, Medscribe, Insurance Agent System, and Real Estate ERP — under one brand, one login, and one design system. Each product solves an entire industry workflow, not just a slice of it.
+          </p>
+          <p>
+            We're just getting started.
+          </p>
+        </div>
       </Section>
 
       <Section eyebrow="Team" title="The people behind the code">

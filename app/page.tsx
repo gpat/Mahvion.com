@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import ProductCard from '@/components/ProductCard';
@@ -14,8 +15,8 @@ export default function HomePage() {
 
       <Section
         eyebrow="Our Ecosystem"
-        title="One company. Many powerful SaaS products."
-        subtitle={`${site.name} ships production-grade platforms that run entire industries.`}
+        title="One company. Four production SaaS products."
+        subtitle={`${site.name} ships ERPs and clinical tools that run entire industry workflows — not just dashboards.`}
         id="products"
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -27,14 +28,20 @@ export default function HomePage() {
               description={p.description}
               color={p.color}
               icon={p.icon}
-              href={site.apps[p.href as keyof typeof site.apps]}
+              href={site.apps[p.href]}
+              learnMore={`/products#${p.slug}`}
               index={i}
             />
           ))}
         </div>
+        <div className="mt-10 text-center">
+          <Link href="/products" className="btn-ghost text-sm">
+            See full product details →
+          </Link>
+        </div>
       </Section>
 
-      <Section eyebrow="Why Choose Us" title="Built for scale, crafted for humans">
+      <Section eyebrow="Why Mahvion" title="Built for scale, crafted for humans">
         <Features />
       </Section>
 
@@ -42,9 +49,9 @@ export default function HomePage() {
         <Section eyebrow="Benefits" title="Everything you need. Nothing you don't.">
           <div className="grid gap-6 md:grid-cols-3">
             {[
-              ['Save Time', 'Automations replace hours of manual work every day.'],
-              ['Save Money', 'One subscription replaces 5+ legacy tools.'],
-              ['Grow Faster', 'Insights and automations that accelerate revenue.'],
+              ['Save Time', 'Automations replace hours of manual data entry, follow-ups, and reporting every single day.'],
+              ['Save Money', 'One subscription replaces 5+ legacy tools — DMS, CRM, accounting, e-sign, and more.'],
+              ['Grow Faster', 'Real-time insights and built-in automations help your team close more, faster.'],
             ].map(([t, d]) => (
               <div key={t} className="card">
                 <h3 className="text-xl font-bold grad-text">{t}</h3>
