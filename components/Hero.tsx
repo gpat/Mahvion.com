@@ -1,8 +1,10 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { site } from '@/lib/site';
+import { ArrowRight, Sparkles, Car, Stethoscope, ShieldCheck, Building2, type LucideIcon } from 'lucide-react';
+import { products, site } from '@/lib/site';
+
+const iconMap: Record<string, LucideIcon> = { Car, Stethoscope, ShieldCheck, Building2 };
 
 export default function Hero() {
   return (
@@ -16,19 +18,19 @@ export default function Hero() {
           className="mx-auto max-w-3xl text-center"
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/70 px-4 py-1.5 text-sm font-medium text-brand-700 shadow-sm backdrop-blur">
-            <Sparkles className="h-4 w-4" /> One ecosystem · Multiple SaaS apps
+            <Sparkles className="h-4 w-4" /> One ecosystem · Four production SaaS platforms
           </span>
           <h1 className="mt-6 text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
-            Powering modern <span className="grad-text">businesses</span> with intelligent SaaS
+            Software that runs <span className="grad-text">entire industries</span>
           </h1>
           <p className="mt-6 text-lg text-slate-600 sm:text-xl">
-            {site.name} builds production-grade platforms for vehicles, healthcare, insurance, and real estate — unified under one beautiful brand.
+            {site.name} ships ERPs and clinical tools for auto dealers, clinicians, insurance agents, and real estate teams — unified under one login, one brand, one beautiful design system.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link href="/products" className="btn-primary">
               Explore Products <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/contact" className="btn-ghost">Talk to Sales</Link>
+            <Link href="/contact" className="btn-ghost">Book a demo</Link>
           </div>
         </motion.div>
 
@@ -38,12 +40,24 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.7 }}
           className="mx-auto mt-20 grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-4"
         >
-          {['Vehicle ERP', 'Medscribe', 'Insurance', 'Real Estate'].map((n, i) => (
-            <div key={n} className="card animate-float text-center" style={{ animationDelay: `${i * 0.4}s` }}>
-              <div className="mx-auto mb-3 h-10 w-10 rounded-xl bg-grad-hero" />
-              <p className="text-sm font-semibold">{n}</p>
-            </div>
-          ))}
+          {products.map((p, i) => {
+            const Icon = iconMap[p.icon] || Sparkles;
+            return (
+              <Link
+                key={p.slug}
+                href={`/products#${p.slug}`}
+                className="card animate-float text-center transition hover:-translate-y-1"
+                style={{ animationDelay: `${i * 0.4}s` }}
+              >
+                <div
+                  className={`mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${p.color} text-white shadow-md`}
+                >
+                  <Icon className="h-5 w-5" />
+                </div>
+                <p className="text-sm font-semibold">{p.name}</p>
+              </Link>
+            );
+          })}
         </motion.div>
       </div>
     </section>
