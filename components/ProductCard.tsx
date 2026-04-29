@@ -27,27 +27,47 @@ export default function ProductCard({
       whileHover={{ y: -6 }}
       className="group card relative flex flex-col overflow-hidden"
     >
-      <div className={`absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br ${color} opacity-10 blur-2xl transition group-hover:opacity-20`} />
-      <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${color} text-white shadow-lg`}>
-        <Icon className="h-6 w-6" />
-      </div>
-      <h3 className="mt-5 text-xl font-bold">{name}</h3>
-      <p className="mt-1 text-sm font-medium text-brand-600">{tagline}</p>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{description}</p>
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4 text-sm font-semibold">
-        {learnMore ? (
-          <Link href={learnMore} className="text-slate-900 hover:text-brand-600">
-            Learn more
-          </Link>
-        ) : <span />}
-        <a
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-1 text-brand-600 hover:text-brand-700"
-        >
-          Visit app <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
+      {/* Large gradient blob */}
+      <div className={`absolute -right-8 -top-8 h-52 w-52 rounded-full bg-gradient-to-br ${color} opacity-15 blur-2xl transition-opacity duration-500 group-hover:opacity-25`} />
+
+      {/* Giant watermark icon */}
+      <Icon
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-5 -right-5 h-44 w-44 text-white opacity-[0.055] transition-opacity duration-500 group-hover:opacity-[0.09]"
+      />
+
+      {/* Subtle dot pattern */}
+      <svg className="absolute inset-0 h-full w-full opacity-20" aria-hidden="true">
+        <defs>
+          <pattern id={`dots-${icon}`} x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.08)" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill={`url(#dots-${icon})`} />
+      </svg>
+
+      <div className="relative">
+        <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${color} text-white shadow-lg`}>
+          <Icon className="h-6 w-6" />
+        </div>
+        <h3 className="mt-5 text-xl font-bold">{name}</h3>
+        <p className="mt-1 text-sm font-medium text-violet-400">{tagline}</p>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">{description}</p>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-violet-900/30 pt-4 text-sm font-semibold">
+          {learnMore ? (
+            <Link href={learnMore} className="text-slate-300 hover:text-violet-400">
+              Learn more
+            </Link>
+          ) : <span />}
+          <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300"
+          >
+            Visit app <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </div>
       </div>
     </motion.div>
   );

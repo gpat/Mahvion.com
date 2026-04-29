@@ -19,31 +19,31 @@ export default function ContactPage() {
       <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2">
         <div className="space-y-6">
           <div className="card flex items-start gap-4">
-            <Mail className="h-6 w-6 text-brand-600" />
+            <Mail className="h-6 w-6 shrink-0 text-violet-400" />
             <div>
-              <p className="font-semibold">Email</p>
-              <a href={`mailto:${site.email}`} className="text-sm text-slate-600 hover:text-brand-600">
+              <p className="font-semibold text-slate-100">Email</p>
+              <a href={`mailto:${site.email}`} className="text-sm text-slate-400 transition hover:text-violet-400">
                 {site.email}
               </a>
             </div>
           </div>
           <div className="card flex items-start gap-4">
-            <Phone className="h-6 w-6 text-brand-600" />
+            <Phone className="h-6 w-6 shrink-0 text-violet-400" />
             <div>
-              <p className="font-semibold">Phone</p>
+              <p className="font-semibold text-slate-100">Phone</p>
               <a
                 href={`tel:${site.phone.replace(/\s+/g, '')}`}
-                className="text-sm text-slate-600 hover:text-brand-600"
+                className="text-sm text-slate-400 transition hover:text-violet-400"
               >
                 {site.phone}
               </a>
             </div>
           </div>
           <div className="card flex items-start gap-4">
-            <MapPin className="h-6 w-6 text-brand-600" />
+            <MapPin className="h-6 w-6 shrink-0 text-violet-400" />
             <div>
-              <p className="font-semibold">Location</p>
-              <p className="text-sm text-slate-600">Global · Remote First</p>
+              <p className="font-semibold text-slate-100">Location</p>
+              <p className="text-sm text-slate-400">Global · Remote First</p>
             </div>
           </div>
         </div>

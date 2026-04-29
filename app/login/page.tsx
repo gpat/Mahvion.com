@@ -24,10 +24,10 @@ export default function LoginPage() {
           >
             <div>
               <div className={`mb-3 inline-flex h-10 w-10 rounded-xl bg-gradient-to-br ${p.color}`} />
-              <p className="text-lg font-bold">{p.name}</p>
-              <p className="text-sm text-slate-500">{p.tagline}</p>
+              <p className="text-lg font-bold text-slate-100">{p.name}</p>
+              <p className="text-sm text-slate-400">{p.tagline}</p>
             </div>
-            <ArrowUpRight className="h-5 w-5 text-slate-400 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-600" />
+            <ArrowUpRight className="h-5 w-5 text-slate-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-violet-400" />
           </a>
         ))}
       </div>

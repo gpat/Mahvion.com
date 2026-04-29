@@ -17,7 +17,7 @@ export default function Section({
         >
           {eyebrow && <span className="eyebrow">{eyebrow}</span>}
           <h2 className="h-title mt-4">{title}</h2>
-          {subtitle && <p className="mt-4 text-lg text-slate-600">{subtitle}</p>}
+          {subtitle && <p className="mt-4 text-lg text-slate-400">{subtitle}</p>}
         </motion.div>
         <div className="mt-14">{children}</div>
       </div>
