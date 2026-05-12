@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   turbopack: {
-    root: __dirname,
+    root: import.meta.dirname,
   },
   poweredByHeader: false,
   compress: true,
