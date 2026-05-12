@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import { Bot, Code2, Rocket, ArrowRight, Zap, Shield, HeartHandshake } from 'lucide-react';
+import { Bot, Code2, Rocket, ArrowRight, Zap, Shield, HeartHandshake, Car, Stethoscope, ShieldCheck, Building2 } from 'lucide-react';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import ProductCard from '@/components/ProductCard';
 import Features from '@/components/Features';
-import PricingCards from '@/components/PricingCards';
 import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
 import { products, site } from '@/lib/site';
@@ -140,9 +139,38 @@ export default function HomePage() {
         </Section>
       </div>
 
-      {/* Pricing */}
-      <Section eyebrow="Pricing" title="Start building with AI today.">
-        <PricingCards />
+      {/* Industries */}
+      <Section
+        eyebrow="Industries"
+        title="AI built for your industry."
+        subtitle="Every Mahvion product is designed from the ground up for the workflows and compliance requirements of a specific vertical."
+      >
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: Car, color: 'from-indigo-500 to-blue-600', label: 'Automotive', stat: '60% faster deal closure', href: '/industries#automotive' },
+            { icon: Stethoscope, color: 'from-emerald-500 to-teal-600', label: 'Healthcare', stat: '2+ hrs saved per clinician/day', href: '/industries#healthcare' },
+            { icon: ShieldCheck, color: 'from-amber-500 to-orange-600', label: 'Insurance', stat: '25% higher renewal retention', href: '/industries#insurance' },
+            { icon: Building2, color: 'from-pink-500 to-rose-600', label: 'Real Estate', stat: '40% less rent delinquency', href: '/industries#real-estate' },
+          ].map(({ icon: Icon, color, label, stat, href }) => (
+            <Link key={label} href={href} className="card group flex flex-col items-center gap-4 text-center transition hover:ring-1 hover:ring-violet-500/40">
+              <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${color} text-white shadow-lg`}>
+                <Icon className="h-7 w-7" />
+              </div>
+              <div>
+                <p className="font-semibold text-slate-100">{label}</p>
+                <p className="mt-1 text-xs text-slate-500">{stat}</p>
+              </div>
+              <span className="mt-auto flex items-center gap-1 text-xs font-medium text-violet-400 opacity-0 transition group-hover:opacity-100">
+                Learn more <ArrowRight className="h-3 w-3" />
+              </span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link href="/industries" className="btn-ghost text-sm">
+            Explore all industries →
+          </Link>
+        </div>
       </Section>
 
       {/* Testimonials */}
