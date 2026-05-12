@@ -18,14 +18,19 @@ export async function POST(req: Request) {
     },
   });
 
-  await transporter.sendMail({
-    from: `"${name}" <${process.env.SMTP_USER}>`,
-    replyTo: email,
-    to: 'support@mahvion.com',
-    subject: subject ? `[Mahvion Contact] ${subject}` : `[Mahvion Contact] Message from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><hr/><p>${message.replace(/\n/g, '<br/>')}</p>`,
-  });
+  try {
+    await transporter.sendMail({
+      from: `"${name}" <${process.env.SMTP_USER}>`,
+      replyTo: email,
+      to: 'support@mahvion.com',
+      subject: subject ? `[Mahvion Contact] ${subject}` : `[Mahvion Contact] Message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><hr/><p>${message.replace(/\n/g, '<br/>')}</p>`,
+    });
+  } catch (err) {
+    console.error('[contact] SMTP error:', err);
+    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+  }
 
   return NextResponse.json({ success: true });
 }
