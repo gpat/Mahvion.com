@@ -1,9 +1,26 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Cpu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { site } from '@/lib/site';
+
+const LOGO_STYLE: React.CSSProperties = {
+  height: 96,
+  width: 'auto',
+  display: 'block',
+  mixBlendMode: 'screen',
+  maskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+  WebkitMaskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+};
+
+const LOGO_STYLE_MOBILE: React.CSSProperties = {
+  height: 80,
+  width: 'auto',
+  display: 'block',
+  mixBlendMode: 'screen',
+  maskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+  WebkitMaskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+};
 
 const links = [
   { href: '/#platform', label: 'Platform' },
@@ -21,16 +38,10 @@ export default function Navbar() {
       transition={{ duration: 0.4 }}
       className="sticky top-0 z-50 border-b border-violet-900/30 bg-[#05080f]/90 backdrop-blur-md"
     >
-      <nav className="container-x flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-grad-hero shadow-lg shadow-violet-600/30">
-            <Cpu className="h-4 w-4 text-white" />
-          </div>
-          <span className="text-xl font-bold tracking-tight">{site.name}</span>
-          <span className="hidden rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-cyan-400 sm:inline-block">
-            AI Platform
-          </span>
+      <nav className="container-x flex h-24 items-center justify-between">
+        <Link href="/">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/mahvion-logo.png" alt="Mahvion" style={LOGO_STYLE} />
         </Link>
 
         {/* Desktop nav */}
@@ -67,6 +78,10 @@ export default function Navbar() {
       {open && (
         <div className="border-t border-violet-900/30 bg-[#05080f] md:hidden">
           <div className="container-x flex flex-col gap-5 py-6">
+            <Link href="/" onClick={() => setOpen(false)}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/mahvion-logo.png" alt="Mahvion" style={LOGO_STYLE_MOBILE} />
+            </Link>
             {links.map((l) => (
               <Link
                 key={l.href}

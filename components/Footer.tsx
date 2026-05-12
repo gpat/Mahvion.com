@@ -1,6 +1,14 @@
 import Link from 'next/link';
-import { Cpu } from 'lucide-react';
 import { products, site } from '@/lib/site';
+
+const footerLogoStyle: React.CSSProperties = {
+  height: 96,
+  width: 'auto',
+  display: 'block',
+  mixBlendMode: 'screen',
+  maskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+  WebkitMaskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+};
 
 const company = [
   { href: '/#platform', label: 'Platform' },
@@ -22,12 +30,10 @@ export default function Footer() {
       <div className="container-x grid gap-10 py-16 md:grid-cols-4">
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-grad-hero shadow-lg shadow-violet-600/30">
-              <Cpu className="h-4 w-4 text-white" />
-            </div>
-            <span className="text-xl font-bold text-slate-100">{site.name}</span>
-          </div>
+          <Link href="/">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/mahvion-logo.png" alt="Mahvion" style={footerLogoStyle} />
+          </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-500">{site.description}</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {['LLMs', 'Agents', 'RAG', 'Vision', 'NLP'].map((tag) => (

@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Car, Stethoscope, ShieldCheck, Building2, type LucideIcon } from 'lucide-react';
+import { Car, Stethoscope, ShieldCheck, Building2, type LucideIcon } from 'lucide-react';
 
 const iconMap: Record<string, LucideIcon> = { Car, Stethoscope, ShieldCheck, Building2 };
 
@@ -13,7 +13,7 @@ export default function ProductCard({
   description: string;
   color: string;
   icon: string;
-  href: string;
+  href?: string;
   learnMore?: string;
   index?: number;
 }) {
@@ -53,21 +53,13 @@ export default function ProductCard({
         <h3 className="mt-5 text-xl font-bold">{name}</h3>
         <p className="mt-1 text-sm font-medium text-violet-400">{tagline}</p>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">{description}</p>
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-violet-900/30 pt-4 text-sm font-semibold">
-          {learnMore ? (
+        {learnMore && (
+          <div className="mt-6 border-t border-violet-900/30 pt-4 text-sm font-semibold">
             <Link href={learnMore} className="text-slate-300 hover:text-violet-400">
               Learn more
             </Link>
-          ) : <span />}
-          <a
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300"
-          >
-            Visit app <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-        </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

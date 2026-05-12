@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description: site.description,
+  icons: {
+    icon: '/mahvion-logo.png',
+    shortcut: '/mahvion-logo.png',
+    apple: '/mahvion-logo.png',
+  },
   keywords: [
     'SaaS', 'ERP', 'Vehicle ERP', 'Medical SaaS', 'Medscribe',
     'Insurance CRM', 'Real Estate ERP', 'Mahvion',

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowUpRight, Check, Users, Sparkles, Car, Stethoscope, ShieldCheck, Building2 } from 'lucide-react';
+import { Check, Users, Sparkles, Car, Stethoscope, ShieldCheck, Building2 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import Section from '@/components/Section';
-import { products, site } from '@/lib/site';
+import { products } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Products',
@@ -130,7 +130,6 @@ export default function ProductsPage() {
 
       <div className="container-x space-y-28 pb-28">
         {products.map((p, i) => {
-          const url = site.apps[p.href];
           const reverse = i % 2 === 1;
           const BgIcon = iconMap[p.icon];
           const LineArt = lineArt[p.slug];
@@ -192,10 +191,7 @@ export default function ProductsPage() {
                   </div>
 
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <a href={url} target="_blank" rel="noreferrer" className="btn-primary text-sm">
-                      Launch {p.name} <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                    <Link href="/contact" className="btn-ghost text-sm">Book a demo</Link>
+                    <Link href="/contact" className="btn-primary text-sm">Book a demo</Link>
                   </div>
                 </div>
 
