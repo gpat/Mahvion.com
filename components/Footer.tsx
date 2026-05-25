@@ -97,6 +97,8 @@ export default function Footer() {
 
       <div className="border-t border-violet-900/20 py-6 text-center text-sm text-slate-600">
         © {year} {site.name}. All rights reserved. &nbsp;·&nbsp; AI-First Product Development Platform
+        <br />
+        <span className="text-xs text-slate-700">Mahvion is a brand of Varaha Solutions</span>
       </div>
     </footer>
   );
