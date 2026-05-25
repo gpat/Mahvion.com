@@ -3,8 +3,24 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { MahvionLogo } from '@/components/Logo';
 
+const LOGO_STYLE: React.CSSProperties = {
+  height: 96,
+  width: 'auto',
+  display: 'block',
+  mixBlendMode: 'screen',
+  maskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+  WebkitMaskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+};
+
+const LOGO_STYLE_MOBILE: React.CSSProperties = {
+  height: 80,
+  width: 'auto',
+  display: 'block',
+  mixBlendMode: 'screen',
+  maskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+  WebkitMaskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
+};
 
 const links = [
   { href: '/#platform', label: 'Platform' },
@@ -25,9 +41,8 @@ export default function Navbar() {
     >
       <nav className="container-x flex h-24 items-center justify-between">
         <Link href="/">
-          <div style={{ mixBlendMode: 'screen' }}>
-            <MahvionLogo height={96} />
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/mahvion-logo.png" alt="Mahvion" style={LOGO_STYLE} />
         </Link>
 
         {/* Desktop nav */}
@@ -65,9 +80,8 @@ export default function Navbar() {
         <div className="border-t border-violet-900/30 bg-[#05080f] md:hidden">
           <div className="container-x flex flex-col gap-5 py-6">
             <Link href="/" onClick={() => setOpen(false)}>
-              <div style={{ mixBlendMode: 'screen' }}>
-                <MahvionLogo height={80} />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/mahvion-logo.png" alt="Mahvion" style={LOGO_STYLE_MOBILE} />
             </Link>
             {links.map((l) => (
               <Link
