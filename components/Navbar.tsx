@@ -25,7 +25,9 @@ export default function Navbar() {
     >
       <nav className="container-x flex h-24 items-center justify-between">
         <Link href="/">
-          <MahvionLogo height={48} />
+          <div style={{ mixBlendMode: 'screen' }}>
+            <MahvionLogo height={96} />
+          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -63,7 +65,9 @@ export default function Navbar() {
         <div className="border-t border-violet-900/30 bg-[#05080f] md:hidden">
           <div className="container-x flex flex-col gap-5 py-6">
             <Link href="/" onClick={() => setOpen(false)}>
-              <MahvionLogo height={44} />
+              <div style={{ mixBlendMode: 'screen' }}>
+                <MahvionLogo height={80} />
+              </div>
             </Link>
             {links.map((l) => (
               <Link
