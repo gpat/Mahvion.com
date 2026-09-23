@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Check, Sparkles, Users } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import { productIcons, lineArt, glowColor } from '@/components/ProductArt';
 import { products, site } from '@/lib/site';
+import { landingPages, landingHref } from '@/lib/landing';
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -30,6 +31,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const LineArt = lineArt[p.slug];
   const others = products.filter((x) => x.slug !== p.slug);
   const inDevelopment = p.status === 'in-development';
+  const solution = landingPages.find((l) => l.section === 'solutions' && l.cta.href.endsWith(`product=${p.slug}`));
 
   return (
     <>
@@ -98,6 +100,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   </Link>
                   {p.slug === 'real-estate' && (
                     <Link href="/real-estate" className="btn-ghost text-sm">Take the full product tour</Link>
+                  )}
+                  {solution && (
+                    <Link href={landingHref(solution)} className="btn-ghost text-sm">{solution.eyebrow.replace(/^For /, 'Made for ')}</Link>
                   )}
                 </div>
               </div>

@@ -66,6 +66,8 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+            <li><Link href="/services/vapt-services-pune" className="transition hover:text-violet-400">VAPT in Pune</Link></li>
+            <li><Link href="/services/it-hardware-amc-pune" className="transition hover:text-violet-400">IT hardware &amp; AMC in Pune</Link></li>
           </ul>
         </div>
 

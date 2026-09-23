@@ -8,6 +8,14 @@ import type { LucideIcon } from 'lucide-react';
 import Section from '@/components/Section';
 import { services } from '@/lib/site';
 
+const localPages: Record<string, { label: string; href: string }[]> = {
+  vapt: [
+    { label: 'VAPT in Pune', href: '/services/vapt-services-pune' },
+    { label: 'Remote VAPT across India', href: '/services/vapt-services-india' },
+  ],
+  'it-hardware': [{ label: 'IT hardware & AMC in Pune', href: '/services/it-hardware-amc-pune' }],
+};
+
 export const metadata: Metadata = {
   title: 'Services',
   description:
@@ -127,6 +135,9 @@ export default function ServicesPage() {
                     >
                       Request a quote <ArrowRight className="h-4 w-4" />
                     </Link>
+                    {(localPages[s.slug] || []).map((l) => (
+                      <Link key={l.href} href={l.href} className="btn-ghost text-sm">{l.label}</Link>
+                    ))}
                   </div>
                 </div>
 
