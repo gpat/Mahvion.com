@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Car, Stethoscope, ShieldCheck, Building2, Target, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Section from '@/components/Section';
-import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Industries',
-  description: 'Mahvion builds AI-first SaaS products for automotive, healthcare, insurance, and real estate — purpose-built for each industry\'s unique workflows.',
+  description: 'Mahvion builds software for automotive, healthcare, insurance, real estate, and sales teams — purpose-built for each industry\'s workflows.',
 };
 
 const industries = [
@@ -16,16 +15,16 @@ const industries = [
     ring: 'ring-indigo-500/30',
     glow: 'bg-indigo-600/10',
     label: 'Automotive',
-    title: 'Vehicle Dealerships & Fleet',
+    title: 'Vehicle Traders & Dealers',
     problems: [
-      'Disconnected spreadsheets and legacy DMS tools',
-      'No visibility across branches or stock aging',
-      'Manual deal paperwork slows closures',
+      'Purchases, stock, and sales tracked across separate spreadsheets',
+      'No clear view of which vehicles are in the godown, booked, or sold',
+      'Profit and pending balances worked out by hand',
     ],
-    solution: 'Vehicle ERP replaces fragmented tools with a single AI-powered dealership management system — VIN traceability, AI finance workflows, and multi-branch accounting in one platform.',
-    stat: '60% faster deal closure',
-    href: site.apps.erp,
-    audience: 'Auto dealerships · Used-car lots · Fleet operators · Multi-brand showrooms',
+    solution: 'Vehicle ERP tracks every vehicle from purchase to godown to booking to sale — with documents, transport, profit, and live dashboards in one system, and role-based access for each team member.',
+    stat: 'Every vehicle, from purchase to sale',
+    href: '/products/vehicle-erp',
+    audience: 'Vehicle traders · Multi-city dealers · Used-vehicle businesses',
   },
   {
     icon: Stethoscope,
@@ -33,16 +32,16 @@ const industries = [
     ring: 'ring-emerald-500/30',
     glow: 'bg-emerald-600/10',
     label: 'Healthcare',
-    title: 'Clinics, Hospitals & Specialists',
+    title: 'Clinics & Independent Doctors',
     problems: [
-      'Physicians spend 2+ hours daily on documentation',
-      'Coding errors and missed ICD-10 entries',
-      'HIPAA audit exposure from incomplete access logs',
+      'Clinicians lose hours every day to typing notes',
+      'Notes are inconsistent and incomplete when written in a rush',
+      'Patient history is scattered across paper and files',
     ],
-    solution: 'Medscribe transcribes consultations into SOAP notes and e-prescriptions in under 3 seconds — with medical NLP, FHIR R4 records, and a tamper-evident HIPAA audit trail.',
-    stat: '2+ hours saved per clinician per day',
-    href: site.apps.med,
-    audience: 'Physicians · Specialists · Dentists · Clinic chains · Hospital groups',
+    solution: 'Medscribe, currently in development, will turn consultations into structured clinical notes and draft prescriptions for the clinician to review — with visit history and an access audit log.',
+    stat: 'In development — early access open',
+    href: '/products/medscribe',
+    audience: 'Independent doctors · Specialists · Dental practices · Clinics',
   },
   {
     icon: ShieldCheck,
@@ -50,16 +49,16 @@ const industries = [
     ring: 'ring-amber-500/30',
     glow: 'bg-amber-600/10',
     label: 'Insurance',
-    title: 'Agents, Brokers & Agencies',
+    title: 'Insurance & Loan Agents',
     problems: [
-      'Manually comparing quotes across carriers wastes hours',
-      'Renewals fall through without systematic follow-up',
-      'Commission disputes from opaque ledgers',
+      'Renewals missed because due dates live in diaries and spreadsheets',
+      'No single view of a client\'s family, policies, and claims',
+      'No time to greet every client on birthdays and festivals',
     ],
-    solution: 'Insurance Agent System connects to 10+ carriers simultaneously, ranks quotes by AI, automates 90/60/30-day renewal sequences, and maintains a fully reconciled commission ledger.',
-    stat: '25% higher renewal retention',
-    href: site.apps.ins,
-    audience: 'Independent agents · Brokers · Agency owners · Multi-carrier teams',
+    solution: 'The Insurance Agent System keeps every client, family member, policy, claim, lead, and loan in one place — and automatically sends birthday, anniversary, festival, and renewal emails every morning.',
+    stat: 'No renewal or birthday missed',
+    href: '/products/insurance',
+    audience: 'Insurance agents · LIC advisors · Loan agents · Channel partners',
   },
   {
     icon: Building2,
@@ -67,16 +66,16 @@ const industries = [
     ring: 'ring-pink-500/30',
     glow: 'bg-pink-600/10',
     label: 'Real Estate',
-    title: 'Property Managers & Developers',
+    title: 'Builders & Developers',
     problems: [
-      'Lease turnarounds take weeks of manual back-and-forth',
-      'Rent delinquency from missed reminders',
-      'Owner reporting requires a separate accounting team',
+      'Unit availability and bookings tracked separately for each project',
+      'Customer payments and dues reconciled by hand',
+      'Expenses paid out without a clear approval trail',
     ],
-    solution: 'Real Estate ERP manages the full property lifecycle — MLS sync, digital lease execution, AI rent collection via ACH/UPI, AI maintenance triage, and GAAP-compliant owner statements.',
-    stat: '40% reduction in rent delinquency',
-    href: site.apps.real,
-    audience: 'Property managers · Developers · REITs · Brokerages · Rental operators',
+    solution: 'Real Estate ERP manages projects, units, customers, bookings, payments, expenses with approvals, tenders, and reports in one system — from first enquiry to handover.',
+    stat: 'Every unit, payment, and expense tracked',
+    href: '/products/real-estate',
+    audience: 'Builders · Developers · Construction companies · Real estate firms',
   },
   {
     icon: Target,
@@ -92,7 +91,7 @@ const industries = [
     ],
     solution: 'Lead Generation CRM captures every Facebook and WhatsApp lead automatically, replies instantly with an AI bot, auto-assigns it to a salesperson, and tracks it through the pipeline to a closed deal.',
     stat: 'Every lead answered in seconds',
-    href: site.apps.leads,
+    href: '/products/lead-crm',
     audience: 'Sales teams · Marketing agencies · Brokers · Consultants · Paid-ad advertisers',
   },
 ];
@@ -141,9 +140,9 @@ export default function IndustriesPage() {
                     <CheckCircle2 className="h-4 w-4 text-emerald-400" />
                     <span className="text-sm font-semibold text-emerald-400">{stat}</span>
                   </div>
-                  <a href={href} className="flex items-center gap-1 text-sm font-medium text-violet-400 transition hover:text-violet-300">
-                    Open app <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
+                  <Link href={href} className="flex items-center gap-1 text-sm font-medium text-violet-400 transition hover:text-violet-300">
+                    View product <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
                 </div>
 
                 <p className="mt-3 text-xs text-slate-600">{audience}</p>

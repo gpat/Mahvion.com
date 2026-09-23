@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import { Bot, Code2, Rocket, ArrowRight, Zap, Shield, HeartHandshake, Car, Stethoscope, ShieldCheck, Building2, Target } from 'lucide-react';
+import { Bot, Code2, Rocket, ArrowRight, Zap, Shield, HeartHandshake, Car, Stethoscope, ShieldCheck, Building2, Target, ShieldAlert, Compass, Server } from 'lucide-react';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import ProductCard from '@/components/ProductCard';
 import Features from '@/components/Features';
-import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
-import { products, site } from '@/lib/site';
+import { products, services } from '@/lib/site';
 
 const steps = [
   {
@@ -25,9 +24,11 @@ const steps = [
     step: '03',
     icon: Rocket,
     title: 'Ship & Scale',
-    desc: 'Deploy with enterprise-grade security, SOC 2 controls, and real-time AI monitoring. Scale globally on edge infrastructure with zero operational overhead.',
+    desc: 'Deploy with role-based access, encrypted connections, and production monitoring — on infrastructure that grows with your usage.',
   },
 ];
+
+const serviceIcons: Record<string, typeof Zap> = { ShieldAlert, Compass, Server };
 
 const advantages = [
   {
@@ -38,7 +39,7 @@ const advantages = [
   {
     icon: Shield,
     title: 'Enterprise-grade security',
-    desc: 'SOC 2-aligned controls, role-based access, AES-256 encryption at rest, HIPAA-ready workflows, and immutable audit logs.',
+    desc: 'Role-based access control, HTTPS everywhere, secure session handling, and isolated data for every customer workspace.',
   },
   {
     icon: HeartHandshake,
@@ -66,8 +67,8 @@ export default function HomePage() {
       <div style={{ background: 'linear-gradient(180deg, var(--bg) 0%, var(--surface-2) 40%, var(--bg) 100%)' }}>
         <Section
           eyebrow="Built With Mahvion AI"
-          title="Five production SaaS products."
-          subtitle="Live, battle-tested, and powered by the Mahvion AI stack — serving real teams across five industries right now."
+          title="Products we have built."
+          subtitle="Each product is built around the day-to-day workflow of one industry. Choose one to see what it does."
           id="products"
         >
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -79,8 +80,8 @@ export default function HomePage() {
                 description={p.description}
                 color={p.color}
                 icon={p.icon}
-                href={site.apps[p.href]}
-                learnMore={`/products#${p.slug}`}
+                status={p.status}
+                href={`/products/${p.slug}`}
                 index={i}
               />
             ))}
@@ -139,6 +140,40 @@ export default function HomePage() {
         </Section>
       </div>
 
+      {/* Services */}
+      <Section
+        eyebrow="Services"
+        title="Beyond software."
+        subtitle="The same engineering team behind our products helps you secure your systems, plan your technology, and run dependable IT infrastructure."
+        id="services"
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          {services.map((s) => {
+            const Icon = serviceIcons[s.icon];
+            return (
+              <Link
+                key={s.slug}
+                href={`/services#${s.slug}`}
+                className="card group relative flex flex-col overflow-hidden transition hover:ring-1 hover:ring-violet-500/40"
+              >
+                <div className={`pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-gradient-to-br ${s.color} opacity-10 blur-2xl transition-opacity duration-500 group-hover:opacity-20`} />
+                <div className="relative flex flex-1 flex-col">
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${s.color} text-white shadow-lg`}>
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-5 text-xl font-bold text-slate-100">{s.name}</h3>
+                  <p className="mt-1 text-sm font-medium text-violet-400">{s.tagline}</p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">{s.description}</p>
+                  <span className="mt-6 flex items-center gap-1 border-t border-violet-900/30 pt-4 text-sm font-semibold text-slate-300 group-hover:text-violet-400">
+                    Learn more <ArrowRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </Section>
+
       {/* Industries */}
       <Section
         eyebrow="Industries"
@@ -147,13 +182,13 @@ export default function HomePage() {
       >
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {[
-            { icon: Car, color: 'from-indigo-500 to-blue-600', label: 'Automotive', stat: '60% faster deal closure', href: site.apps.erp },
-            { icon: Stethoscope, color: 'from-emerald-500 to-teal-600', label: 'Healthcare', stat: '2+ hrs saved per clinician/day', href: site.apps.med },
-            { icon: ShieldCheck, color: 'from-amber-500 to-orange-600', label: 'Insurance', stat: '25% higher renewal retention', href: site.apps.ins },
-            { icon: Building2, color: 'from-pink-500 to-rose-600', label: 'Real Estate', stat: '40% less rent delinquency', href: site.apps.real },
-            { icon: Target, color: 'from-sky-500 to-cyan-600', label: 'Sales & Marketing', stat: 'Instant AI reply to every lead', href: site.apps.leads },
+            { icon: Car, color: 'from-indigo-500 to-blue-600', label: 'Automotive', stat: 'Purchases, stock & sales in one place', href: '/products/vehicle-erp' },
+            { icon: Stethoscope, color: 'from-emerald-500 to-teal-600', label: 'Healthcare', stat: 'AI clinical notes — in development', href: '/products/medscribe' },
+            { icon: ShieldCheck, color: 'from-amber-500 to-orange-600', label: 'Insurance', stat: 'Automated renewal reminders', href: '/products/insurance' },
+            { icon: Building2, color: 'from-pink-500 to-rose-600', label: 'Real Estate', stat: 'Projects, units & payments together', href: '/products/real-estate' },
+            { icon: Target, color: 'from-sky-500 to-cyan-600', label: 'Sales & Marketing', stat: 'Instant AI reply to every lead', href: '/products/lead-crm' },
           ].map(({ icon: Icon, color, label, stat, href }) => (
-            <a key={label} href={href} className="card group flex flex-col items-center gap-4 text-center transition hover:ring-1 hover:ring-violet-500/40">
+            <Link key={label} href={href} className="card group flex flex-col items-center gap-4 text-center transition hover:ring-1 hover:ring-violet-500/40">
               <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${color} text-white shadow-lg`}>
                 <Icon className="h-7 w-7" />
               </div>
@@ -162,9 +197,9 @@ export default function HomePage() {
                 <p className="mt-1 text-xs text-slate-500">{stat}</p>
               </div>
               <span className="mt-auto flex items-center gap-1 text-xs font-medium text-violet-400 opacity-0 transition group-hover:opacity-100">
-                Open app <ArrowRight className="h-3 w-3" />
+                View product <ArrowRight className="h-3 w-3" />
               </span>
-            </a>
+            </Link>
           ))}
         </div>
         <div className="mt-8 text-center">
@@ -174,10 +209,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Testimonials */}
-      <Section eyebrow="What Teams Say" title="Trusted by teams running on AI.">
-        <Testimonials />
-      </Section>
 
       {/* CTA banner */}
       <section className="section relative overflow-hidden">
@@ -214,6 +245,9 @@ export default function HomePage() {
             </Link>
             <Link href="/products" className="btn-ghost">
               Browse Products
+            </Link>
+            <Link href="/services" className="btn-ghost">
+              Our Services
             </Link>
           </div>
         </div>

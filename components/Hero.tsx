@@ -17,10 +17,10 @@ const row3 = [
 ];
 
 const stats = [
-  { value: '4+', label: 'Live Products' },
-  { value: '15+', label: 'AI Models' },
-  { value: '10k+', label: 'Hours Saved Daily' },
-  { value: '99.9%', label: 'Uptime SLA' },
+  { value: '4', label: 'Live Products' },
+  { value: '5', label: 'Industries' },
+  { value: '3', label: 'Service Lines' },
+  { value: 'AI', label: 'In Every Product' },
 ];
 
 function TechTag({ label, variant }: { label: string; variant: 'violet' | 'cyan' | 'blue' }) {

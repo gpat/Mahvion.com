@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { MessageSquare, Wrench, Handshake } from 'lucide-react';
 import Section from '@/components/Section';
 import { site } from '@/lib/site';
 
@@ -8,45 +9,45 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: '4', label: 'Production SaaS Platforms' },
-  { value: '4', label: 'Industries in Production' },
-  { value: '99.9%', label: 'Uptime SLA' },
-  { value: '<100ms', label: 'Median API Latency' },
-  { value: '2-week', label: 'Release Cadence' },
-  { value: 'SOC 2', label: 'Security Alignment' },
+  { value: '5', label: 'SaaS Platforms' },
+  { value: '4', label: 'Live Today' },
+  { value: '5', label: 'Industries' },
+  { value: '3', label: 'Service Lines' },
+  { value: 'RBAC', label: 'Access Control' },
+  { value: 'TLS', label: 'Encrypted in Transit' },
 ];
 
 const techStack = [
   {
     category: 'Application Layer',
-    items: ['Next.js 15 (App Router)', 'React 19', 'TypeScript 5', 'Tailwind CSS', 'Framer Motion', 'tRPC'],
+    items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js / Express', 'Python / Flask'],
   },
   {
     category: 'Data & Storage',
-    items: ['PostgreSQL 16', 'Prisma ORM', 'Redis (Upstash)', 'S3-compatible Object Storage', 'Full-text Search (pg_trgm)'],
+    items: ['PostgreSQL', 'Prisma ORM', 'Drizzle ORM', 'Neo4j Graph Database', 'Redis', 'Elasticsearch'],
   },
   {
     category: 'AI & ML',
-    items: ['Domain-trained Medical NLP', 'OpenAI Whisper (STT)', 'LLM-assisted Document Generation', 'Price Intelligence Engine', 'Lapse Risk Scoring Model'],
+    items: ['LLM Integration', 'AI Lead Auto-Reply', 'AI Content Generation', 'AI Research Agent', 'Speech-to-Text (Medscribe)'],
   },
   {
     category: 'Infrastructure & DevOps',
-    items: ['Vercel Edge Network', 'Docker + GitHub Actions CI/CD', 'Zero-downtime Blue/Green Deploys', 'Automated DB Migrations', 'Sentry Error Monitoring', 'Vercel Analytics'],
+    items: ['Docker & Docker Compose', 'Nginx Reverse Proxy', "Let's Encrypt TLS", 'PM2 Process Manager', 'Automated DB Migrations', 'Scheduled Jobs & Cron'],
   },
   {
     category: 'Security & Compliance',
-    items: ['AES-256 Encryption at Rest', 'TLS 1.3 in Transit', 'JWT + Refresh Token Rotation', 'RBAC with Field-level Permissions', 'HIPAA BAA', 'SOC 2 Type II Controls'],
+    items: ['HTTPS / TLS Everywhere', 'JWT Authentication', 'Role-based Access Control', 'HttpOnly Session Cookies', 'Tenant Data Isolation', 'Rate Limiting'],
   },
   {
     category: 'Integrations & APIs',
-    items: ['REST API + OpenAPI 3.1 Spec', 'Webhooks with HMAC Signatures', 'WebRTC (Tele-consult)', 'Razorpay / Stripe Payments', 'Twilio SMS / Voice', 'MLS / IDX Feed Sync'],
+    items: ['REST APIs', 'Meta Lead Ads Webhooks', 'WhatsApp Business API', 'Firebase Cloud Messaging', 'SMTP Email', 'CSV Import / Export'],
   },
 ];
 
 const principles = [
   {
     title: 'Architecture for scale, not demos',
-    body: 'Every product is built on a shared multi-tenant data model with row-level security. We design for 10,000 users before we onboard 10. No prototypes shipped as production.',
+    body: 'Our platforms are designed as multi-tenant systems from the start, with each customer\'s data kept separate. We design for growth before we onboard the first user. No prototypes shipped as production.',
   },
   {
     title: 'Security as a first principle',
@@ -54,60 +55,45 @@ const principles = [
   },
   {
     title: 'AI integrated, not bolted on',
-    body: 'Our AI capabilities — medical transcription, quote generation, lapse prediction — are embedded into the core workflow. They eliminate keystrokes, not just time.',
+    body: 'Our AI features — instant replies to new leads, content generation, and research assistance — are built into the core workflow. They remove keystrokes, not just add features.',
   },
   {
-    title: 'One platform, zero re-login',
-    body: 'All five products share a unified identity layer. Customers, vehicles, properties, and clinical records sit on a shared data substrate — no cross-product duplication.',
+    title: 'One brand, one standard',
+    body: 'Every product follows the same Mahvion design language, security baseline, and engineering practices — so moving from one Mahvion product to another feels familiar.',
   },
   {
-    title: 'Observability at every layer',
-    body: 'From edge latency to database query times, every service is instrumented. P95 latency, error budgets, and uptime are tracked as engineering KPIs, not afterthoughts.',
+    title: 'Reliability is an engineering priority',
+    body: 'We monitor our services in production, log what matters, and treat performance and availability as engineering responsibilities — not afterthoughts.',
   },
   {
     title: 'Continuous delivery, not big bang releases',
-    body: 'Two-week sprint cycles with automated CI/CD mean customers see improvements continuously. Feature flags let us ship safely to 1% before rolling out to all.',
+    body: 'Short release cycles and automated deployments mean customers see improvements continuously, not in one risky release a year.',
   },
 ];
 
-const team = [
+const founderLed = [
   {
-    title: 'Founder & CEO',
-    focus: 'Product Strategy · Domain Expertise · Partnerships',
-    detail: 'Drives the product vision and go-to-market across all five verticals. Deep domain knowledge in automotive operations, clinical workflow, and insurance lifecycle.',
+    icon: MessageSquare,
+    title: 'You talk to the people building it',
+    body: 'No account managers relaying messages. Your questions, feedback, and feature requests go straight to the people who design and write the software.',
   },
   {
-    title: 'CTO',
-    focus: 'Platform Architecture · Engineering Culture · Infra',
-    detail: 'Owns the technical roadmap and multi-product architecture. Ensures every team ships against a consistent quality bar — from schema design to edge deployment.',
+    icon: Wrench,
+    title: 'Hands-on from first call to go-live',
+    body: 'The same team scopes your requirement, builds or configures the solution, and supports you after launch — so nothing gets lost in hand-offs.',
   },
   {
-    title: 'Head of Design',
-    focus: 'Design System · UX Research · Brand Identity',
-    detail: 'Maintains the unified Mahvion design system shared across all five products. Owns usability research, interaction patterns, and the accessibility standard.',
-  },
-  {
-    title: 'Head of Engineering',
-    focus: 'Delivery · Code Quality · On-call Reliability',
-    detail: 'Leads sprint planning, code review culture, and incident response. Holds the team accountable to CI/CD hygiene, test coverage thresholds, and SLA commitments.',
-  },
-  {
-    title: 'Lead — AI & Data',
-    focus: 'NLP Models · Analytics · Recommendation Engines',
-    detail: 'Builds and maintains the domain-trained NLP models, lapse risk scoring, and price intelligence engine that power AI-native features across the ecosystem.',
-  },
-  {
-    title: 'Head of Customer Success',
-    focus: 'Onboarding · Retention · Feedback Loops',
-    detail: 'Runs structured onboarding programs, monitors product adoption metrics, and converts customer feedback directly into prioritized engineering tickets.',
+    icon: Handshake,
+    title: 'Built alongside real customers',
+    body: 'Every Mahvion product started with a real business and its real workflow. We keep building that way — shipping improvements based on what customers actually use.',
   },
 ];
 
 const values = [
   { label: 'Craft over convenience', body: 'We do not ship fast at the cost of correctness. Every module is tested, reviewed, and documented before it touches a production user.' },
-  { label: 'Transparent by default', body: 'Customers see our uptime history, changelog, and roadmap. We do not hide incidents behind marketing language.' },
+  { label: 'Transparent by default', body: 'We tell customers what changed, what went wrong, and what is coming next. We do not hide incidents behind marketing language.' },
   { label: 'Deep before broad', body: 'Each product solves an entire industry workflow before we expand to the next. Depth over surface area, always.' },
-  { label: 'Respect the operator', body: 'Our users are dealership managers, doctors, and property owners — not developers. Software must earn their trust every single session.' },
+  { label: 'Respect the operator', body: 'Our users are vehicle traders, insurance agents, builders, and sales teams — not developers. Software must earn their trust every single session.' },
 ];
 
 export default function AboutPage() {
@@ -141,10 +127,10 @@ export default function AboutPage() {
             {site.name} was founded on a direct observation: the industries that run the physical economy — auto dealerships, medical clinics, insurance agencies, property firms — are still operating on software built in the 2000s. Legacy desktop tools, disconnected spreadsheets, and generic CRMs that were never designed for their workflows.
           </p>
           <p>
-            We started with Vehicle ERP, a full dealer management system designed around how dealerships actually operate — not how software vendors assumed they did. We built VIN-level traceability, integrated finance structuring, and real-time parts management before we shipped version one. The signal from the market was immediate.
+            We started with Vehicle ERP, built around how vehicle traders actually operate — not how software vendors assumed they did. Purchases from dealers in different cities, godown stock, bookings, sales, transport, and profit all moved out of spreadsheets and into one system, with each team member seeing only what their role needs.
           </p>
           <p>
-            From there we extended the same engineering philosophy — deep domain knowledge, production-first architecture, and genuine respect for the end user — to clinical documentation (Medscribe), insurance agency management, real estate operations, and lead generation for sales teams. Five products. One shared identity layer. One design system. One login.
+            From there we extended the same engineering philosophy — deep domain knowledge, production-first architecture, and genuine respect for the end user — to insurance agency management, real estate development, and lead generation for sales teams — with clinical documentation (Medscribe) now in development. Five products. One engineering standard. One design system.
           </p>
           <p>
             Today {site.name} is not building dashboards. We are building the operating systems for entire industries — and we are just getting started.
@@ -214,19 +200,20 @@ export default function AboutPage() {
         </Section>
       </div>
 
-      {/* Team */}
-      <Section eyebrow="Leadership" title="The team behind the platform">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {team.map((m) => (
-            <div key={m.title} className="card flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 shrink-0 rounded-xl bg-grad-hero" />
-                <div>
-                  <p className="font-semibold text-slate-100">{m.title}</p>
-                  <p className="text-xs text-violet-400">{m.focus}</p>
-                </div>
+      {/* Founder-led */}
+      <Section
+        eyebrow="How we work"
+        title="Founder-led, and proud of it."
+        subtitle="Mahvion is a focused, founder-led team. That means direct access, fast decisions, and real accountability for everything we ship."
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          {founderLed.map(({ icon: Icon, title, body }) => (
+            <div key={title} className="card flex flex-col gap-4">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-grad-hero text-white shadow-lg shadow-violet-600/25">
+                <Icon className="h-5 w-5" />
               </div>
-              <p className="text-sm leading-relaxed text-slate-400">{m.detail}</p>
+              <p className="font-semibold text-slate-100">{title}</p>
+              <p className="text-sm leading-relaxed text-slate-400">{body}</p>
             </div>
           ))}
         </div>

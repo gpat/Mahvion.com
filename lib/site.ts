@@ -18,12 +18,13 @@ export type Product = {
   slug: string;
   name: string;
   tagline: string;
+  status: 'live' | 'in-development';
   description: string;
   longDescription: string;
   audience: string;
   modules: string[];
   outcomes: string[];
-  techStack: string[];
+  highlights: string[];
   color: string;
   icon: string;
   href: keyof typeof site.apps;
@@ -33,27 +34,28 @@ export const products: Product[] = [
   {
     slug: 'vehicle-erp',
     name: 'Vehicle ERP',
-    tagline: 'AI-powered dealership management platform',
+    tagline: 'Purchase, stock, and sales management for vehicle traders',
+    status: 'live',
     description:
-      'A production-grade DMS replacing disconnected spreadsheets and legacy software — with AI price intelligence, VIN-level traceability, and automated deal workflows across inventory, sales, service, and accounting.',
+      'One system for vehicle traders and dealers to run purchases from multiple cities, godown stock, bookings, sales, transport, and profit — replacing the spreadsheets that usually hold it all together.',
     longDescription:
-      'Vehicle ERP is a multi-branch dealer management system built on a unified AI-powered data model. Every vehicle is tracked from procurement to delivery with a VIN-linked audit trail. The AI sales engine supports finance structuring, insurance linkage, and digitally signed deal packages. Service management runs technician scheduling, job card creation, and real-time parts consumption — with automated reorder triggers. A built-in double-entry accounting module handles GST/VAT posting, bank reconciliation, and multi-branch P&L consolidation without any third-party accounting tool.',
-    audience: 'Auto dealerships, used-car lots, fleet operators, multi-brand showrooms, and service centers.',
+      'Vehicle ERP is built around how vehicle trading businesses actually work. Every vehicle is recorded when it is purchased from a dealer — with city, purchase date, engine number, colour, and supporting documents such as the invoice, insurance, and RC. It is then tracked as it arrives at the godown, sits in stock, is booked by a customer, and is finally sold, with profit and pending balances calculated automatically. Transport vendors, drivers, and trips are managed in the same place, as are insurance vendors. Owners and managers see live dashboards on revenue, profit, stock status, brand mix, and payments, and can build their own reports with a column picker. Each business gets its own isolated workspace, and every user sees only what their role — Admin, Manager, Godown Attender, or Accountant — allows.',
+    audience: 'Vehicle traders, multi-city dealers, used-vehicle businesses, and companies that buy and sell vehicles in volume.',
     modules: [
-      'VIN-linked inventory with barcode scanning, costing, photos, and aging alerts',
-      'AI sales pipeline: quotes, EMI/finance calculator, insurance upsell, and digital deal signing',
-      'Service & job cards with technician assignment, labor billing, and SLA tracking',
-      'Parts bin management with location mapping, reorder rules, and supplier POs',
-      'Double-entry accounting: GST/VAT, journal entries, and bank reconciliation',
-      'Multi-branch CRM with customer 360°, follow-up queues, and AMC reminders',
-      'AI executive dashboards: gross profit per unit, stock turn ratio, and service recovery rate',
+      'Purchases from dealers across cities, with purchase date, engine number, colour, and document uploads',
+      'Godown (warehouse) tracking — arrivals, stock status, and pending vehicles',
+      'Bookings and sales, with salesperson, customer details, and automatic profit calculation',
+      'Transport management — transport vendors, drivers, trips, and transport invoices',
+      'Dealer, customer, company, and insurance-vendor records',
+      'Live dashboards with charts on revenue, profit, stock status, brand mix, and payments',
+      'Custom reports with a column picker, plus role-based access for four user roles',
     ],
     outcomes: [
-      'Reduce deal closure time by 60% with AI-assisted finance & signing workflows',
-      'Eliminate stock shrinkage with VIN-level traceability across branches',
-      'Consolidate 5+ legacy tools into one auditable AI system of record',
+      'Know exactly where every vehicle is — purchased, in the godown, booked, or sold',
+      'See profit and pending balances without reconciling spreadsheets',
+      'Give each team member access to only the parts of the business they handle',
     ],
-    techStack: ['LLM Analytics', 'REST API', 'Webhooks', 'Multi-branch', 'GST / VAT', 'Role-based Access'],
+    highlights: ['Multi-tenant', 'Role-based Access', 'Document Uploads', 'Live Dashboards', 'Custom Reports', 'Transport Tracking'],
     color: 'from-indigo-500 to-blue-600',
     icon: 'Car',
     href: 'erp',
@@ -61,27 +63,26 @@ export const products: Product[] = [
   {
     slug: 'medscribe',
     name: 'Medscribe',
-    tagline: 'AI-powered clinical documentation engine',
+    tagline: 'AI clinical documentation for doctors',
+    status: 'in-development',
     description:
-      'Real-time speech-to-structured-note with a medical NLP layer — transcribes consultations into SOAP notes, e-prescriptions, and FHIR-compatible records in under 3 seconds.',
+      'An AI assistant that will turn doctor–patient consultations into structured clinical notes and prescriptions, so clinicians spend less time typing and more time with patients.',
     longDescription:
-      'Medscribe is a clinical documentation platform powered by a domain-trained medical NLP model. It transcribes live consultations via WebRTC audio and maps speech to structured clinical schemas — SOAP, H&P, discharge summaries — with ICD-10 and SNOMED CT coding suggestions inline. e-Prescriptions are validated against a drug-interaction database before signing. Patient records are stored in a FHIR R4-compatible data model, enabling seamless lab, imaging, and pharmacy integrations. Every read and write action is captured in an immutable HIPAA-grade audit log with user, timestamp, and IP.',
-    audience: 'Physicians, specialists, dentists, clinics, and hospital chains.',
+      'Medscribe is Mahvion\'s next product, currently in development. The goal is simple: a clinician records or dictates a consultation, and Medscribe produces a structured clinical note — history, examination, assessment, and plan — along with a draft prescription for the clinician to review and sign. Notes will be stored against the patient\'s visit history, and every access will be recorded in an audit log. We are building Medscribe with practising clinicians, and are looking for clinics interested in early access.',
+    audience: 'Independent doctors, specialists, dental practices, and clinics interested in early access.',
     modules: [
-      'Medical NLP transcription with <3s latency and 97%+ specialty vocabulary accuracy',
-      'Structured output: SOAP, H&P, discharge, and referral letter templates',
-      'e-Prescriptions with drug-interaction validation and pharmacy routing',
-      'FHIR R4 patient records with longitudinal visit timeline and attachments',
-      'Appointment scheduler with queue management and WebRTC tele-consult',
-      'Lab and imaging order management with result ingestion and delta flagging',
-      'Immutable HIPAA audit log, BAA support, and field-level encryption at rest',
+      'Speech-to-text transcription of consultations',
+      'AI-generated structured clinical notes for clinician review',
+      'Draft e-prescriptions, reviewed and approved by the clinician',
+      'Patient visit history in one place',
+      'Access audit log for every record viewed or changed',
     ],
     outcomes: [
-      'Reclaim 2+ hours of charting daily per clinician',
-      'Reduce documentation errors with AI-assisted ICD-10 coding',
-      'Pass HIPAA audits with a complete, tamper-evident access log',
+      'Less time charting after clinic hours',
+      'More consistent, complete clinical notes',
+      'Clinician stays in control — nothing is final without review',
     ],
-    techStack: ['Whisper ASR', 'Medical NLP', 'HIPAA BAA', 'FHIR R4', 'ICD-10 / SNOMED CT', 'AES-256'],
+    highlights: ['Speech-to-Text', 'Medical NLP', 'Clinician Review', 'Audit Log', 'Early Access'],
     color: 'from-emerald-500 to-teal-600',
     icon: 'Stethoscope',
     href: 'med',
@@ -89,27 +90,28 @@ export const products: Product[] = [
   {
     slug: 'insurance',
     name: 'Insurance Agent System',
-    tagline: 'AI-driven agency management platform',
+    tagline: 'Client, policy, and renewal management for insurance agents',
+    status: 'live',
     description:
-      'A carrier-agnostic CRM and policy administration system with AI-powered quote ranking, automated renewals, claims tracking, and real-time commission accounting.',
+      'A complete desk for insurance and loan agents — every client, family member, policy, claim, lead, and loan in one place, with automatic birthday, anniversary, festival, and renewal emails.',
     longDescription:
-      'The Insurance Agent System is a full-lifecycle agency platform. The AI quoting engine connects to multiple carrier APIs simultaneously and returns ranked, comparable quotes in seconds. ACORD-compliant forms are auto-populated from CRM data, eliminating rekeying. Policy events — endorsements, cancellations, reinstatements — trigger automatic document generation and carrier notification. The renewal engine uses AI to calculate lapse risk scores and fires a multi-touch communication sequence 90, 60, and 30 days out. Every commission payment, split rule, and chargeback is tracked in a reconciled ledger — visible by policy, agent, and carrier.',
-    audience: 'Independent agents, brokers, agency owners, and multi-carrier insurance teams.',
+      'The Insurance Agent System (BimaDesk) is built for agents and channel partners who manage hundreds of families and policies across multiple insurers. Each client record holds their policies, premiums, maturity dates, family members, claim history, and documents, so the full relationship is visible in one screen. New leads are tracked until they are converted into clients, and loans can be managed alongside insurance. Insurers and banks are kept as vendors with their commission slabs. Every morning, the system automatically emails clients on their birthdays and anniversaries, sends festival greetings, and reminds them about upcoming policy renewals — so the agent stays in touch without lifting a finger. Existing client lists can be imported from Excel, and every change is recorded in an activity log.',
+    audience: 'Insurance agents, LIC and general insurance advisors, loan agents, and channel partners managing many client families.',
     modules: [
-      'Lead capture via web forms, telephony CTI, and referral tracking with attribution',
-      'AI multi-carrier real-time quote engine for auto, home, life, health, and commercial lines',
-      'ACORD form auto-population, policy issuance, endorsements, and document vault',
-      'AI renewal automation: lapse risk scoring, 90/60/30-day multi-touch sequences',
-      'Claims intake with FNOL capture, adjuster assignment, and status push notifications',
-      'Commission ledger with split rules, chargeback tracking, and carrier reconciliation',
-      'Client self-serve portal: certificates, ID cards, payment history, and policy documents',
+      'Client records with policies, premiums, maturity dates, and family members',
+      'Document vault and claim history for every client',
+      'Lead tracking with one-click conversion to client',
+      'Loan management alongside insurance policies',
+      'Insurer and bank vendor records with commission slabs',
+      'Automatic birthday, anniversary, festival, and renewal-reminder emails every morning',
+      'Excel import/export, dashboard statistics, and a full activity log',
     ],
     outcomes: [
-      'Issue AI-ranked quotes across 10+ carriers in under 30 seconds',
-      'Increase renewal retention rate by 25% with AI-powered lapse prevention',
-      'Eliminate commission disputes with a fully reconciled, auditable ledger',
+      'Never miss a renewal, birthday, or anniversary again',
+      'See a client\'s whole family, every policy, and every claim at a glance',
+      'Move an existing client list in from Excel in minutes',
     ],
-    techStack: ['AI Quote Ranking', 'Carrier API', 'ACORD Forms', 'CTI / Telephony', 'E-signature', 'SOC 2 Type II'],
+    highlights: ['Renewal Reminders', 'Automated Greetings', 'Family View', 'Claims', 'Loans', 'Excel Import'],
     color: 'from-amber-500 to-orange-600',
     icon: 'ShieldCheck',
     href: 'ins',
@@ -117,27 +119,28 @@ export const products: Product[] = [
   {
     slug: 'real-estate',
     name: 'Real Estate ERP',
-    tagline: 'AI-powered property lifecycle platform',
+    tagline: 'Project, unit, and payment management for builders and developers',
+    status: 'live',
     description:
-      'An end-to-end platform for listing, leasing, tenant management, and property accounting — with AI-automated rent collection, maintenance routing, and GAAP-compliant financials.',
+      'Everything a builder or developer needs from lead to handover — projects, units, customers, bookings, payments, expenses, tenders, and reports, in one system.',
     longDescription:
-      'Real Estate ERP manages the complete property lifecycle on a single AI-powered data model. Listings sync to MLS/IDX portals automatically and update in real time. The leasing pipeline tracks prospects through showings, applications, background checks, and e-signed lease execution. Tenant onboarding includes KYC verification, move-in inspection forms, and automated welcome workflows. The AI rent collection engine supports ACH, UPI, and card payments with smart reminders and late-fee posting. Maintenance requests are triaged by AI priority scoring, assigned to vendors via a self-serve portal, and tracked to resolution. Owner statements and GAAP-compliant financials are generated monthly with NOI, cap rate, and occupancy metrics.',
-    audience: 'Property managers, developers, brokerages, REITs, and rental operators.',
+      'Real Estate ERP is built for builders and developers who run several projects at once. Each project holds its units — configuration, area, and pricing — and each unit moves from available to booked to sold as customers progress. Customer records follow the buyer from first enquiry through booking, instalment payments, and handover. Leads from channel partners and walk-ins are tracked in one pipeline. On the finance side, the system records customer collections, government payments, and project expenses, with an approval workflow and an expense dashboard. Tenders are tracked with their own dashboard, company documents are stored centrally, and automatic email notifications keep the team informed. Every organisation gets its own workspace, with per-organisation feature settings, user roles, and an activity log.',
+    audience: 'Builders, developers, construction companies, and real estate firms running multiple projects.',
     modules: [
-      'MLS/IDX-synced listings with unit matrix, floor plans, virtual tour links, and availability tracking',
-      'Leasing CRM: prospect pipeline, showing scheduler, application workflow, and background check integration',
-      'Digital lease execution with e-signature, clause library, and encrypted document vault',
-      'Tenant management: KYC, move-in/out inspections, lease renewals, and notices',
-      'AI rent collection via ACH/UPI/card with smart reminders, receipts, and late-fee automation',
-      'Vendor maintenance portal: AI triage, SLA tracking, work orders, and invoice approval',
-      'GAAP-compliant accounting: CAM reconciliation, owner statements, NOI, cap rate, and tax schedules',
+      'Projects and units with configuration, area, pricing, and availability status',
+      'Customer records from enquiry to booking, payments, and handover',
+      'Lead and channel-partner pipeline',
+      'Customer payment and government payment tracking',
+      'Expense management with approvals and an expense dashboard',
+      'Tender tracking, vendor records, and central company documents',
+      'Reports, email notifications, user roles, and a user activity log',
     ],
     outcomes: [
-      'Cut lease turnaround from weeks to 48 hours with AI-powered digital workflows',
-      'Reduce rent collection delinquency by 40% with AI payment sequences',
-      'Deliver investor-grade owner statements without a separate accounting team',
+      'See availability, bookings, and collections for every project on one screen',
+      'Know what every customer has paid and what is due',
+      'Keep expenses under control with approvals before money goes out',
     ],
-    techStack: ['AI Triage', 'MLS / IDX Sync', 'ACH / UPI Payments', 'E-signature', 'GAAP Accounting', 'KYC'],
+    highlights: ['Multi-project', 'Unit Inventory', 'Payment Tracking', 'Expense Approvals', 'Tenders', 'Email Notifications'],
     color: 'from-pink-500 to-rose-600',
     icon: 'Building2',
     href: 'real',
@@ -146,6 +149,7 @@ export const products: Product[] = [
     slug: 'lead-crm',
     name: 'Lead Generation CRM',
     tagline: 'AI-powered lead capture and sales CRM',
+    status: 'live',
     description:
       'Captures leads the moment they arrive from Facebook Lead Ads and WhatsApp, assigns them to the right salesperson, and keeps every follow-up on track — with an AI bot that replies to new leads instantly.',
     longDescription:
@@ -165,9 +169,112 @@ export const products: Product[] = [
       'Stop losing leads between ad platforms, spreadsheets, and inboxes',
       'See exactly which salesperson is working which lead, and where it stands',
     ],
-    techStack: ['Meta Lead Ads', 'WhatsApp API', 'AI Auto-Reply', 'Android App', 'Multi-tenant', 'Role-based Access'],
+    highlights: ['Meta Lead Ads', 'WhatsApp API', 'AI Auto-Reply', 'Android App', 'Multi-tenant', 'Role-based Access'],
     color: 'from-sky-500 to-cyan-600',
     icon: 'Target',
     href: 'leads',
+  },
+];
+
+export type Service = {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  longDescription: string;
+  audience: string;
+  scope: string[];
+  deliverables: string[];
+  highlights: string[];
+  color: string;
+  glow: string;
+  icon: string;
+};
+
+export const services: Service[] = [
+  {
+    slug: 'vapt',
+    name: 'VAPT & Security Testing',
+    tagline: 'Vulnerability assessment and penetration testing',
+    description:
+      'Find and fix security weaknesses before attackers do. We test your web apps, mobile apps, APIs, and networks the way a real attacker would — and show you exactly how to close every gap.',
+    longDescription:
+      'Our Vulnerability Assessment and Penetration Testing (VAPT) service combines automated scanning with hands-on manual testing by security engineers. Automated tools give broad coverage; manual testing finds the business-logic flaws, broken access controls, and chained exploits that scanners miss. Every engagement starts with an agreed scope and rules of engagement, runs without disrupting your production systems, and ends with a clear report your developers can act on — every finding rated by severity, backed by proof, and paired with specific remediation steps. Once your team has applied the fixes, we re-test to confirm each issue is closed.',
+    audience: 'SaaS companies, fintech and healthcare platforms, e-commerce businesses, and any team preparing for a client security review or compliance audit.',
+    scope: [
+      'Web application testing covering the OWASP Top 10 — injection, broken authentication, access control, and more',
+      'Mobile application testing for Android and iOS, including insecure storage and API abuse',
+      'API security testing for REST and GraphQL endpoints against the OWASP API Security Top 10',
+      'External and internal network penetration testing of servers, firewalls, and exposed services',
+      'Cloud configuration review for AWS, Azure, and Google Cloud — IAM, storage, and network exposure',
+      'Source-code-assisted (grey-box) testing when you want deeper coverage of critical flows',
+    ],
+    deliverables: [
+      'Executive summary written for leadership and non-technical stakeholders',
+      'Detailed technical report with severity ratings, evidence, and step-by-step reproduction',
+      'Prioritised remediation guidance your developers can act on immediately',
+      'Re-test after fixes, with an updated report confirming closed findings',
+    ],
+    highlights: ['Web & Mobile', 'API Security', 'Network', 'Cloud Review', 'OWASP Top 10', 'Re-test Included'],
+    color: 'from-red-500 to-rose-600',
+    glow: 'rgba(244,63,94,0.10)',
+    icon: 'ShieldAlert',
+  },
+  {
+    slug: 'it-consulting',
+    name: 'IT Consulting',
+    tagline: 'Technology strategy, cloud, and engineering advisory',
+    description:
+      'Senior technology guidance without a full-time hire. We help you choose the right stack, move to the cloud, cut infrastructure costs, and put AI to work — then help your team execute.',
+    longDescription:
+      'Good technology decisions compound; bad ones get expensive fast. Our consultants have designed, built, and operated the production systems behind the Mahvion product suite, and we bring that same hands-on experience to your business. We start by understanding where you are — your systems, your team, your constraints, and your goals — and turn that into a practical roadmap with clear priorities and costs. Whether you need an independent architecture review, a cloud migration plan, a DevOps pipeline, or a strategy for adopting AI safely, we stay involved through execution rather than handing over a slide deck and leaving.',
+    audience: 'Growing businesses, startups without a full-time CTO, and established teams planning a migration, modernisation, or AI initiative.',
+    scope: [
+      'IT strategy and technology roadmaps aligned with your business goals and budget',
+      'Cloud migration and architecture on AWS, Azure, and Google Cloud',
+      'Cloud cost review and optimisation — right-sizing, reserved capacity, and waste removal',
+      'DevOps and CI/CD setup: automated builds, testing, deployments, and monitoring',
+      'Software architecture and code reviews for scalability, security, and maintainability',
+      'AI adoption strategy — identifying high-value use cases and deploying them responsibly',
+      'Vendor and tool selection with an independent, no-commission recommendation',
+    ],
+    deliverables: [
+      'Current-state assessment of your systems, risks, and costs',
+      'Prioritised roadmap with effort, cost, and expected impact for each step',
+      'Architecture diagrams and implementation plans your team can follow',
+      'Hands-on support during execution, or a fixed-scope delivery by our engineers',
+    ],
+    highlights: ['IT Strategy', 'Cloud Migration', 'Cost Optimisation', 'DevOps', 'Architecture Review', 'AI Adoption'],
+    color: 'from-violet-500 to-purple-600',
+    glow: 'rgba(139,92,246,0.12)',
+    icon: 'Compass',
+  },
+  {
+    slug: 'it-hardware',
+    name: 'IT Hardware & Infrastructure',
+    tagline: 'Procurement, installation, and support for your IT estate',
+    description:
+      'The right hardware, set up properly and kept running. We supply laptops, desktops, servers, and networking equipment, install and configure everything, and support it afterwards.',
+    longDescription:
+      'Hardware decisions affect every employee every day, yet they are often made in a rush from whatever is in stock. We start from how your team actually works, recommend equipment that fits your workload and budget, and source it from established brands with genuine warranties. Our engineers then handle installation and configuration end-to-end — from imaging laptops and setting up user accounts to racking servers, running structured cabling, and configuring firewalls and Wi-Fi — so your office is productive from day one. After go-live, we stay on as your support partner with maintenance plans, repairs, upgrades, and a single point of contact for everything IT.',
+    audience: 'Offices setting up or expanding, businesses refreshing ageing equipment, and teams that need a dependable partner to look after their IT.',
+    scope: [
+      'Laptops, desktops, workstations, monitors, and peripherals for every role',
+      'Servers, storage, and backup systems sized for your workload',
+      'Networking — routers, switches, firewalls, and business-grade Wi-Fi',
+      'Structured cabling, rack installation, and power backup (UPS)',
+      'Device setup: OS imaging, user accounts, security software, and email configuration',
+      'Annual maintenance contracts, on-site support, repairs, and upgrades',
+    ],
+    deliverables: [
+      'Needs assessment and a clear, itemised quotation',
+      'Genuine, warranty-backed equipment from established brands',
+      'Complete installation, configuration, and handover documentation',
+      'Ongoing support under a maintenance plan that suits your team',
+    ],
+    highlights: ['Laptops & Desktops', 'Servers & Storage', 'Networking', 'Structured Cabling', 'Installation', 'Maintenance (AMC)'],
+    color: 'from-cyan-500 to-teal-600',
+    glow: 'rgba(6,182,212,0.10)',
+    icon: 'Server',
   },
 ];

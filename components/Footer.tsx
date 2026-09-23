@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { products, site } from '@/lib/site';
+import { products, services, site } from '@/lib/site';
 
 const footerLogoStyle: React.CSSProperties = {
   height: 96,
@@ -10,6 +10,7 @@ const footerLogoStyle: React.CSSProperties = {
 const company = [
   { href: '/#platform', label: 'Platform' },
   { href: '/products', label: 'Products' },
+  { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
   { href: '/login', label: 'Launch App' },
@@ -50,9 +51,19 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm text-slate-500">
             {products.map((p) => (
               <li key={p.slug}>
-                <a href={site.apps[p.href]} className="transition hover:text-violet-400">
+                <Link href={`/products/${p.slug}`} className="transition hover:text-violet-400">
                   {p.name}
-                </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h4 className="mb-4 mt-8 text-sm font-semibold uppercase tracking-wider text-slate-300">Services</h4>
+          <ul className="space-y-2.5 text-sm text-slate-500">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/services#${s.slug}`} className="transition hover:text-violet-400">
+                  {s.name}
+                </Link>
               </li>
             ))}
           </ul>

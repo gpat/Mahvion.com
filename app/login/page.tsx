@@ -16,7 +16,7 @@ export default function LoginPage() {
       subtitle="Select the Mahvion product you want to sign in to."
     >
       <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-        {products.map((p) => (
+        {products.filter((p) => p.status === 'live').map((p) => (
           <a
             key={p.slug}
             href={site.apps[p.href as keyof typeof site.apps]}

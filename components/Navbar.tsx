@@ -19,6 +19,7 @@ const LOGO_STYLE_MOBILE: React.CSSProperties = {
 const links = [
   { href: '/#platform', label: 'Platform' },
   { href: '/products', label: 'Products' },
+  { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },

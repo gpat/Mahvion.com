@@ -64,7 +64,7 @@ const features = [
   {
     icon: CreditCard,
     title: 'Payment Tracking (In & Out)',
-    body: 'Log every inward collection and outward disbursement. Auto-reconcile against booking milestones and generate payment receipts instantly.',
+    body: 'Log every inward collection and outward disbursement. Match every payment to the customer and unit it belongs to, and see what is still due.',
     tag: 'Finance',
   },
   {
@@ -75,9 +75,9 @@ const features = [
   },
   {
     icon: Sparkles,
-    title: 'AI Follow-Up Suggestions',
-    body: 'Mahvion AI surfaces the right follow-up action for each lead based on engagement history, booking stage, and payment status.',
-    tag: 'AI',
+    title: 'Expenses, Tenders & Approvals',
+    body: 'Record project expenses with an approval step before money goes out, track tenders on their own dashboard, and keep government payments alongside customer collections.',
+    tag: 'Control',
   },
 ];
 
@@ -89,7 +89,7 @@ const steps = [
 ];
 
 const metrics = [
-  { value: '3×', label: 'Faster lead-to-booking conversion' },
+  { value: '1', label: 'System from first enquiry to handover' },
   { value: '100%', label: 'Payment visibility across projects' },
   { value: '0', label: 'Spreadsheets needed' },
 ];
@@ -130,7 +130,7 @@ function HeroDashboard() {
         <span className="h-3 w-3 rounded-full bg-yellow-500/70" />
         <span className="h-3 w-3 rounded-full bg-green-500/70" />
         <span className="ml-4 flex-1 rounded-md bg-white/5 px-3 py-1 text-xs text-slate-500">
-          app.mahvion.com/real-estate/dashboard
+          real.mahvion.com
         </span>
       </div>
 
@@ -453,7 +453,7 @@ export default function RealEstatePage() {
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
-            {['No credit card required', '15-min setup demo', 'Trusted by builders across 3 countries'].map((t) => (
+            {['No credit card required', '15-min setup demo', 'Built for multi-project builders'].map((t) => (
               <span key={t} className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-sky-500/70" />
                 {t}

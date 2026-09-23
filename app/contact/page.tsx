@@ -2,19 +2,32 @@ import type { Metadata } from 'next';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Section from '@/components/Section';
 import ContactForm from '@/components/ContactForm';
-import { site } from '@/lib/site';
+import { products, services, site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
   description: `Get in touch with the ${site.name} team.`,
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string; product?: string }>;
+}) {
+  const { service, product } = await searchParams;
+  const selected = services.find((s) => s.slug === service);
+  const selectedProduct = products.find((p) => p.slug === product);
+  const defaultSubject = selected
+    ? `Quote request: ${selected.name}`
+    : selectedProduct
+      ? `${selectedProduct.status === 'live' ? 'Demo request' : 'Early access request'}: ${selectedProduct.name}`
+      : '';
+
   return (
     <Section
       eyebrow="Contact"
       title="We'd love to hear from you"
-      subtitle="Questions about pricing, demos, integrations, or partnerships? Reach out."
+      subtitle="Questions about our products, services, pricing, or partnerships? Reach out."
     >
       <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2">
         <div className="space-y-6">
@@ -47,7 +60,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-        <ContactForm />
+        <ContactForm defaultSubject={defaultSubject} />
       </div>
     </Section>
   );
