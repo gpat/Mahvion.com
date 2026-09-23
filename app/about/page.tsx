@@ -3,7 +3,7 @@ import Section from '@/components/Section';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'About Mahvion — Engineering Company Behind 4 Industry Platforms',
+  title: 'About Mahvion — Engineering Company Behind 5 Industry Platforms',
   description: `${site.name} is a product engineering company building production-grade SaaS for auto dealerships, clinical practice, insurance agencies, and real estate — on a single unified platform.`,
 };
 
@@ -58,7 +58,7 @@ const principles = [
   },
   {
     title: 'One platform, zero re-login',
-    body: 'All four products share a unified identity layer. Customers, vehicles, properties, and clinical records sit on a shared data substrate — no cross-product duplication.',
+    body: 'All five products share a unified identity layer. Customers, vehicles, properties, and clinical records sit on a shared data substrate — no cross-product duplication.',
   },
   {
     title: 'Observability at every layer',
@@ -74,7 +74,7 @@ const team = [
   {
     title: 'Founder & CEO',
     focus: 'Product Strategy · Domain Expertise · Partnerships',
-    detail: 'Drives the product vision and go-to-market across all four verticals. Deep domain knowledge in automotive operations, clinical workflow, and insurance lifecycle.',
+    detail: 'Drives the product vision and go-to-market across all five verticals. Deep domain knowledge in automotive operations, clinical workflow, and insurance lifecycle.',
   },
   {
     title: 'CTO',
@@ -84,7 +84,7 @@ const team = [
   {
     title: 'Head of Design',
     focus: 'Design System · UX Research · Brand Identity',
-    detail: 'Maintains the unified Mahvion design system shared across all four products. Owns usability research, interaction patterns, and the accessibility standard.',
+    detail: 'Maintains the unified Mahvion design system shared across all five products. Owns usability research, interaction patterns, and the accessibility standard.',
   },
   {
     title: 'Head of Engineering',
@@ -116,7 +116,7 @@ export default function AboutPage() {
       {/* Hero */}
       <Section
         eyebrow="About Mahvion"
-        title="The engineering company behind 4 industry operating systems"
+        title="The engineering company behind 5 industry operating systems"
         subtitle={`${site.name} is a product engineering company building production-grade, AI-native SaaS for the industries that keep the physical economy moving — automotive, healthcare, insurance, and real estate.`}
       />
 
@@ -144,7 +144,7 @@ export default function AboutPage() {
             We started with Vehicle ERP, a full dealer management system designed around how dealerships actually operate — not how software vendors assumed they did. We built VIN-level traceability, integrated finance structuring, and real-time parts management before we shipped version one. The signal from the market was immediate.
           </p>
           <p>
-            From there we extended the same engineering philosophy — deep domain knowledge, production-first architecture, and genuine respect for the end user — to clinical documentation (Medscribe), insurance agency management, and real estate operations. Four products. One shared identity layer. One design system. One login.
+            From there we extended the same engineering philosophy — deep domain knowledge, production-first architecture, and genuine respect for the end user — to clinical documentation (Medscribe), insurance agency management, real estate operations, and lead generation for sales teams. Five products. One shared identity layer. One design system. One login.
           </p>
           <p>
             Today {site.name} is not building dashboards. We are building the operating systems for entire industries — and we are just getting started.
@@ -181,7 +181,7 @@ export default function AboutPage() {
       {/* Tech Stack */}
       <Section eyebrow="Technology" title="Built on a modern, battle-tested stack">
         <p className="mx-auto mb-12 max-w-2xl text-center text-lg text-slate-400">
-          Every product in the ecosystem is built on the same core platform — a shared infrastructure layer that delivers consistent performance, security, and developer velocity across all four verticals.
+          Every product in the ecosystem is built on the same core platform — a shared infrastructure layer that delivers consistent performance, security, and developer velocity across all five verticals.
         </p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {techStack.map((layer) => (

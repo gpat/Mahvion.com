@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Bot, Code2, Rocket, ArrowRight, Zap, Shield, HeartHandshake, Car, Stethoscope, ShieldCheck, Building2 } from 'lucide-react';
+import { Bot, Code2, Rocket, ArrowRight, Zap, Shield, HeartHandshake, Car, Stethoscope, ShieldCheck, Building2, Target } from 'lucide-react';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import ProductCard from '@/components/ProductCard';
@@ -66,11 +66,11 @@ export default function HomePage() {
       <div style={{ background: 'linear-gradient(180deg, var(--bg) 0%, var(--surface-2) 40%, var(--bg) 100%)' }}>
         <Section
           eyebrow="Built With Mahvion AI"
-          title="Four production SaaS products."
-          subtitle="Live, battle-tested, and powered by the Mahvion AI stack — serving real teams across four industries right now."
+          title="Five production SaaS products."
+          subtitle="Live, battle-tested, and powered by the Mahvion AI stack — serving real teams across five industries right now."
           id="products"
         >
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((p, i) => (
               <ProductCard
                 key={p.slug}
@@ -145,14 +145,15 @@ export default function HomePage() {
         title="AI built for your industry."
         subtitle="Every Mahvion product is designed from the ground up for the workflows and compliance requirements of a specific vertical."
       >
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {[
-            { icon: Car, color: 'from-indigo-500 to-blue-600', label: 'Automotive', stat: '60% faster deal closure', href: '/industries#automotive' },
-            { icon: Stethoscope, color: 'from-emerald-500 to-teal-600', label: 'Healthcare', stat: '2+ hrs saved per clinician/day', href: '/industries#healthcare' },
-            { icon: ShieldCheck, color: 'from-amber-500 to-orange-600', label: 'Insurance', stat: '25% higher renewal retention', href: '/industries#insurance' },
-            { icon: Building2, color: 'from-pink-500 to-rose-600', label: 'Real Estate', stat: '40% less rent delinquency', href: '/industries#real-estate' },
+            { icon: Car, color: 'from-indigo-500 to-blue-600', label: 'Automotive', stat: '60% faster deal closure', href: site.apps.erp },
+            { icon: Stethoscope, color: 'from-emerald-500 to-teal-600', label: 'Healthcare', stat: '2+ hrs saved per clinician/day', href: site.apps.med },
+            { icon: ShieldCheck, color: 'from-amber-500 to-orange-600', label: 'Insurance', stat: '25% higher renewal retention', href: site.apps.ins },
+            { icon: Building2, color: 'from-pink-500 to-rose-600', label: 'Real Estate', stat: '40% less rent delinquency', href: site.apps.real },
+            { icon: Target, color: 'from-sky-500 to-cyan-600', label: 'Sales & Marketing', stat: 'Instant AI reply to every lead', href: site.apps.leads },
           ].map(({ icon: Icon, color, label, stat, href }) => (
-            <Link key={label} href={href} className="card group flex flex-col items-center gap-4 text-center transition hover:ring-1 hover:ring-violet-500/40">
+            <a key={label} href={href} className="card group flex flex-col items-center gap-4 text-center transition hover:ring-1 hover:ring-violet-500/40">
               <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${color} text-white shadow-lg`}>
                 <Icon className="h-7 w-7" />
               </div>
@@ -161,9 +162,9 @@ export default function HomePage() {
                 <p className="mt-1 text-xs text-slate-500">{stat}</p>
               </div>
               <span className="mt-auto flex items-center gap-1 text-xs font-medium text-violet-400 opacity-0 transition group-hover:opacity-100">
-                Learn more <ArrowRight className="h-3 w-3" />
+                Open app <ArrowRight className="h-3 w-3" />
               </span>
-            </Link>
+            </a>
           ))}
         </div>
         <div className="mt-8 text-center">

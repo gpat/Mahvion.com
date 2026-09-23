@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Check, Users, Sparkles, Car, Stethoscope, ShieldCheck, Building2 } from 'lucide-react';
+import { Check, Users, Sparkles, Car, Stethoscope, ShieldCheck, Building2, Target, ArrowUpRight } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import Section from '@/components/Section';
-import { products } from '@/lib/site';
+import { products, site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Products',
   description:
-    'Explore the full Mahvion ecosystem — Vehicle ERP, Medscribe, Insurance Agent System, and Real Estate ERP. One brand, one login, four production-grade SaaS platforms.',
+    'Explore the full Mahvion ecosystem — Vehicle ERP, Medscribe, Insurance Agent System, Real Estate ERP, and Lead Generation CRM. One brand, one login, five production-grade SaaS platforms.',
 };
 
-const iconMap: Record<string, LucideIcon> = { Car, Stethoscope, ShieldCheck, Building2 };
+const iconMap: Record<string, LucideIcon> = { Car, Stethoscope, ShieldCheck, Building2, Target };
 
 /* Industry-specific SVG line art for each product */
 function VehicleLines() {
@@ -117,6 +117,7 @@ const glowColor: Record<string, string> = {
   'medscribe':    'rgba(16,185,129,0.10)',
   'insurance':    'rgba(245,158,11,0.10)',
   'real-estate':  'rgba(236,72,153,0.10)',
+  'lead-crm':     'rgba(14,165,233,0.10)',
 };
 
 export default function ProductsPage() {
@@ -124,7 +125,7 @@ export default function ProductsPage() {
     <>
       <Section
         eyebrow="Products"
-        title="Four products. One ecosystem."
+        title="Five products. One ecosystem."
         subtitle="Each Mahvion product is built to run an entire industry workflow end-to-end. Pick the one you need today — add the others when you're ready."
       />
 
@@ -191,7 +192,10 @@ export default function ProductsPage() {
                   </div>
 
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <Link href="/contact" className="btn-primary text-sm">Book a demo</Link>
+                    <a href={site.apps[p.href]} className="btn-primary text-sm inline-flex items-center gap-1.5">
+                      Open {p.name} <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                    <Link href="/contact" className="btn-ghost text-sm">Book a demo</Link>
                   </div>
                 </div>
 

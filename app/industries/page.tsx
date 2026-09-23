@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Car, Stethoscope, ShieldCheck, Building2, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Car, Stethoscope, ShieldCheck, Building2, Target, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Section from '@/components/Section';
+import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Industries',
@@ -23,7 +24,7 @@ const industries = [
     ],
     solution: 'Vehicle ERP replaces fragmented tools with a single AI-powered dealership management system — VIN traceability, AI finance workflows, and multi-branch accounting in one platform.',
     stat: '60% faster deal closure',
-    href: '/products#vehicle-erp',
+    href: site.apps.erp,
     audience: 'Auto dealerships · Used-car lots · Fleet operators · Multi-brand showrooms',
   },
   {
@@ -40,7 +41,7 @@ const industries = [
     ],
     solution: 'Medscribe transcribes consultations into SOAP notes and e-prescriptions in under 3 seconds — with medical NLP, FHIR R4 records, and a tamper-evident HIPAA audit trail.',
     stat: '2+ hours saved per clinician per day',
-    href: '/products#medscribe',
+    href: site.apps.med,
     audience: 'Physicians · Specialists · Dentists · Clinic chains · Hospital groups',
   },
   {
@@ -57,7 +58,7 @@ const industries = [
     ],
     solution: 'Insurance Agent System connects to 10+ carriers simultaneously, ranks quotes by AI, automates 90/60/30-day renewal sequences, and maintains a fully reconciled commission ledger.',
     stat: '25% higher renewal retention',
-    href: '/products#insurance',
+    href: site.apps.ins,
     audience: 'Independent agents · Brokers · Agency owners · Multi-carrier teams',
   },
   {
@@ -74,8 +75,25 @@ const industries = [
     ],
     solution: 'Real Estate ERP manages the full property lifecycle — MLS sync, digital lease execution, AI rent collection via ACH/UPI, AI maintenance triage, and GAAP-compliant owner statements.',
     stat: '40% reduction in rent delinquency',
-    href: '/products#real-estate',
+    href: site.apps.real,
     audience: 'Property managers · Developers · REITs · Brokerages · Rental operators',
+  },
+  {
+    icon: Target,
+    color: 'from-sky-500 to-cyan-600',
+    ring: 'ring-sky-500/30',
+    glow: 'bg-sky-600/10',
+    label: 'Sales & Marketing',
+    title: 'Sales Teams & Lead-driven Businesses',
+    problems: [
+      'Ad leads sit in Facebook and WhatsApp until someone copies them over',
+      'Slow first responses let hot leads go cold',
+      'No clear view of who is following up on which lead',
+    ],
+    solution: 'Lead Generation CRM captures every Facebook and WhatsApp lead automatically, replies instantly with an AI bot, auto-assigns it to a salesperson, and tracks it through the pipeline to a closed deal.',
+    stat: 'Every lead answered in seconds',
+    href: site.apps.leads,
+    audience: 'Sales teams · Marketing agencies · Brokers · Consultants · Paid-ad advertisers',
   },
 ];
 
@@ -123,9 +141,9 @@ export default function IndustriesPage() {
                     <CheckCircle2 className="h-4 w-4 text-emerald-400" />
                     <span className="text-sm font-semibold text-emerald-400">{stat}</span>
                   </div>
-                  <Link href={href} className="flex items-center gap-1 text-sm font-medium text-violet-400 transition hover:text-violet-300">
-                    See product <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                  <a href={href} className="flex items-center gap-1 text-sm font-medium text-violet-400 transition hover:text-violet-300">
+                    Open app <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
                 </div>
 
                 <p className="mt-3 text-xs text-slate-600">{audience}</p>
@@ -141,7 +159,7 @@ export default function IndustriesPage() {
           <span className="eyebrow-cyan">Don't see your industry?</span>
           <h2 className="h-title mt-4">We build custom AI products too.</h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-400">
-            The Mahvion AI platform isn&rsquo;t limited to four verticals. If you have a workflow problem in any industry, we can design and ship an AI-powered product for it — typically in weeks.
+            The Mahvion AI platform isn&rsquo;t limited to five verticals. If you have a workflow problem in any industry, we can design and ship an AI-powered product for it — typically in weeks.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/contact" className="btn-primary">

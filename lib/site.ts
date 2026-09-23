@@ -10,6 +10,7 @@ export const site = {
     med: process.env.NEXT_PUBLIC_APP_MED || 'https://med.mahvion.com',
     ins: process.env.NEXT_PUBLIC_APP_INS || 'https://ins.mahvion.com',
     real: process.env.NEXT_PUBLIC_APP_REAL || 'https://real.mahvion.com',
+    leads: process.env.NEXT_PUBLIC_APP_LEADS || 'https://leadscrm.mahvion.com',
   },
 };
 
@@ -140,5 +141,33 @@ export const products: Product[] = [
     color: 'from-pink-500 to-rose-600',
     icon: 'Building2',
     href: 'real',
+  },
+  {
+    slug: 'lead-crm',
+    name: 'Lead Generation CRM',
+    tagline: 'AI-powered lead capture and sales CRM',
+    description:
+      'Captures leads the moment they arrive from Facebook Lead Ads and WhatsApp, assigns them to the right salesperson, and keeps every follow-up on track — with an AI bot that replies to new leads instantly.',
+    longDescription:
+      'Lead Generation CRM turns ad clicks into closed deals without anyone copying data between tabs. Leads from Facebook Lead Ads and WhatsApp land in the CRM automatically through webhooks, are de-duplicated, and are auto-assigned to a sales executive who gets an email the moment it happens. An AI auto-reply bot sends every new lead a personalised first response within seconds. The sales team works each lead through a visual pipeline with contacts, companies, notes, file attachments and a meeting calendar, while scheduled follow-up reminders make sure nothing goes cold. Executives call leads with one tap through the companion Android app. Marketing teams generate LinkedIn, Facebook and Instagram posts in the AI Content Studio, and managers track conversion in built-in reports. Every client business gets its own isolated workspace with role-based feature toggles.',
+    audience: 'Sales teams, marketing agencies, real estate and insurance brokers, education consultants, and any business running paid lead campaigns.',
+    modules: [
+      'Automatic lead capture from Facebook Lead Ads and WhatsApp via webhooks',
+      'Lead de-duplication and auto-assignment with instant email notifications',
+      'AI auto-reply bot that sends a personalised first response to every new lead',
+      'Visual sales pipeline with contacts, companies, notes, and file attachments',
+      'Meeting calendar and scheduled follow-up reminders so no lead goes cold',
+      'One-tap click-to-call through the companion Android app, plus WhatsApp messaging',
+      'AI Content Studio for LinkedIn, Facebook, and Instagram posts, with reports and CSV import/export',
+    ],
+    outcomes: [
+      'Respond to every new lead in seconds, not hours',
+      'Stop losing leads between ad platforms, spreadsheets, and inboxes',
+      'See exactly which salesperson is working which lead, and where it stands',
+    ],
+    techStack: ['Meta Lead Ads', 'WhatsApp API', 'AI Auto-Reply', 'Android App', 'Multi-tenant', 'Role-based Access'],
+    color: 'from-sky-500 to-cyan-600',
+    icon: 'Target',
+    href: 'leads',
   },
 ];
