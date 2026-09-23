@@ -5,9 +5,6 @@ const footerLogoStyle: React.CSSProperties = {
   height: 96,
   width: 'auto',
   display: 'block',
-  mixBlendMode: 'screen',
-  maskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
-  WebkitMaskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
 };
 
 const company = [
@@ -53,9 +50,9 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm text-slate-500">
             {products.map((p) => (
               <li key={p.slug}>
-                <Link href={`/products#${p.slug}`} className="transition hover:text-violet-400">
+                <a href={site.apps[p.href]} className="transition hover:text-violet-400">
                   {p.name}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>

@@ -5,21 +5,15 @@ import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const LOGO_STYLE: React.CSSProperties = {
-  height: 96,
+  height: 84,
   width: 'auto',
   display: 'block',
-  mixBlendMode: 'screen',
-  maskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
-  WebkitMaskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
 };
 
 const LOGO_STYLE_MOBILE: React.CSSProperties = {
-  height: 80,
+  height: 72,
   width: 'auto',
   display: 'block',
-  mixBlendMode: 'screen',
-  maskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
-  WebkitMaskImage: 'radial-gradient(ellipse 86% 94% at 50% 48%, black 54%, transparent 100%)',
 };
 
 const links = [

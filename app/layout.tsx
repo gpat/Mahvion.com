@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   description: site.description,
   icons: {
-    icon: '/mahvion-logo.png',
+    icon: '/favicon.png',
     shortcut: '/mahvion-logo.png',
     apple: '/mahvion-logo.png',
   },
@@ -45,7 +45,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-white font-sans text-slate-900">
+      <body className="min-h-screen font-sans">
         <Navbar />
         <main>{children}</main>
         <Footer />
